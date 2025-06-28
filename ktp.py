@@ -177,7 +177,7 @@ def main():
 
     # 放晶体图片在最后
     try:
-        image = Image.open(r"C:\\Users\\21450\\PycharmProjects\\PythonProject\\wulishiyan\\ktp.png")
+        image = Image.open("ktp.png")
         st.sidebar.image(image, caption="KTP晶体示意图", use_container_width=True)
     except:
         st.sidebar.warning("未找到晶体图像")
