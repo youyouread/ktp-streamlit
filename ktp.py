@@ -148,6 +148,15 @@ def main():
     ax2.grid(True)
     st.pyplot(fig2)
 
+    # 计算当前输入波长对应的匹配角
+try:
+    current_phi_rad = brentq(phase_matching_eq, np.radians(1), np.radians(89), args=(lam_input,))
+    current_phi_deg = np.degrees(current_phi_rad)
+    st.markdown(f"### 当前波长 {lam_input:.1f} nm 的最佳匹配角 φ = **{current_phi_deg:.2f}°**")
+except ValueError:
+    st.warning(f"无法求解波长 {lam_input:.1f} nm 下的匹配角 φ")
+
+
     # 效率计算
     st.subheader("倍频转换效率 vs 方位角 φ")
     global lambda1, lambda2, nx1_sq, ny1_sq, nz1_sq, nx2_sq, ny2_sq, nz2_sq, n1_o
