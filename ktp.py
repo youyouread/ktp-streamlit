@@ -148,13 +148,12 @@ def main():
     ax2.grid(True)
     st.pyplot(fig2)
 
-    # 计算当前输入波长对应的匹配角
     try:
-       current_phi_rad = brentq(phase_matching_eq, np.radians(1), np.radians(89), args=(lam_input,))
-       current_phi_deg = np.degrees(current_phi_rad)
-    st.markdown(f"### 当前波长 {lam_input:.1f} nm 的最佳匹配角 φ = **{current_phi_deg:.2f}°**")
+        current_phi_rad = brentq(phase_matching_eq, np.radians(1), np.radians(89), args=(lam_input,))
+        current_phi_deg = np.degrees(current_phi_rad)
+        st.markdown(f"### 当前波长 {lam_input:.1f} nm 的最佳匹配角 φ = **{current_phi_deg:.2f}°**")
     except ValueError:
-       st.warning(f"无法求解波长 {lam_input:.1f} nm 下的匹配角 φ")
+        st.warning(f"无法求解波长 {lam_input:.1f} nm 下的匹配角 φ")
 
 
     # 效率计算
