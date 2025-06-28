@@ -110,7 +110,7 @@ def main():
         st.write(f"n_z = {calc_refractive_index(lam_input/2, 'z'):.4f}")
 
     # 折射率图
-    st.subheader("折射率随波长变化曲线")
+    st.subheader("Refractive Index vs Wavelength")
     wavelengths = np.linspace(500, 1200, 200)
     n_x = [calc_refractive_index(lam, 'x') for lam in wavelengths]
     n_y = [calc_refractive_index(lam, 'y') for lam in wavelengths]
@@ -130,7 +130,7 @@ def main():
     st.pyplot(fig1)
 
     # 相位匹配角图
-    st.subheader("相位匹配角φ vs 波长 (1000–1100nm)")
+    st.subheader("Phase-Matching Angle φ vs Fundamental Wavelength")
     lam_range = np.linspace(1000, 1100, 300)
     def solve_phi_brentq(lam):
         try:
@@ -149,7 +149,7 @@ def main():
     st.pyplot(fig2)
 
     # 效率计算
-    st.subheader("倍频转换效率 vs 方位角 φ")
+    st.subheader("Second Harmonic Generation Efficiency vs Azimuth Angle φ")
     global lambda1, lambda2, nx1_sq, ny1_sq, nz1_sq, nx2_sq, ny2_sq, nz2_sq, n1_o
     lambda1 = lam_input / 1000
     lambda2 = lambda1 / 2
